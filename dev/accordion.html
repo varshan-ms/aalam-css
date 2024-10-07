@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="module" src="../node_modules/aalam-wc/dist/accordion.js"></script>
+        <title>Accordion Demo</title>
+        <link rel="stylesheet" href="../src/accordion.scss">
+        <link rel="stylesheet" href="../src/color.scss">
+        <link rel="stylesheet" href="../src/listgroup.scss">
+        <style>
+            .toggle-switch {
+              position: relative;
+              display: inline-block;
+              width: 40px;
+              height: 20px;
+              cursor: pointer;
+            }
+
+            .toggle-switch input[type="checkbox"] {
+              display: none;
+            }
+
+            .toggle-switch-background {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 40px;
+              height: 20px;
+              background-color: #ddd;
+              border-radius: 20px;
+              box-shadow: inset 0 0 0 2px #ccc;
+              transition: background-color 0.3s ease-in-out;
+            }
+
+            .toggle-switch-handle {
+              position: absolute;
+              top: 5px;
+              left: 5px;
+              width: 10px;
+              height: 10px;
+              background-color: #fff;
+              border-radius: 50%;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+              transition: transform 0.3s ease-in-out;
+            }
+
+            .toggle-switch::before {
+              content: "";
+              position: absolute;
+              top: -25px;
+              right: -35px;
+              font-size: 12px;
+              font-weight: bold;
+              color: #aaa;
+              text-shadow: 1px 1px #fff;
+              transition: color 0.3s ease-in-out;
+            }
+
+            .toggle-switch input[type="checkbox"]:checked + .toggle-switch-handle {
+              transform: translateX(45px);
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 0 3px #05c46b;
+            }
+
+            .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background {
+              background-color: #05c46b;
+              box-shadow: inset 0 0 0 2px #04b360;
+            }
+
+            .toggle-switch input[type="checkbox"]:checked + .toggle-switch:before {
+              content: "On";
+              color: #05c46b;
+              right: -15px;
+            }
+
+            .toggle-switch input[type="checkbox"]:checked + .toggle-switch-background .toggle-switch-handle {
+              transform: translateX(20px);
+            }
+
+            div .toggle {
+                display: flex;
+                justify-content: space-between;
+                padding-right:15px;
+            }
+        </style>
+        <script>
+            var first = true;
+            function invert() {
+                if (first) {
+                    document.querySelector(".icon").setAttribute("d","M7 11L10 8L13 11");
+                    first= false;
+                } else {
+                    document.querySelector(".icon").setAttribute("d", "M7 9L10 12L13 9");
+                    first = true;
+                }
+            }
+        </script>
+    </head>
+    <body>
+    <div style="display:flex; gap:10px;">
+        <div style="width:-moz-available; border:1px solid black;">
+            <aalam-accordion id="acc" animationDur="300">
+                <h3 style="text-align:center;"> Demo for List type Accordion </h3>
+                <header class="container">
+                    <div class="acc-title">
+                        <span>Base Application</span> <input type="button" value="invert" onclick="invert()"/>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                        <path class="icon"  d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+
+    <!--d="M7 11L10 8L13 11"-->
+
+                    <div class="acc-body">
+                        <aalam-accordion>
+                            <header class="container">
+                                <div class="acc-title acc-sub-title">
+                                    <span>Apps</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                                    <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="acc-body lg lg-line">
+                                    <div>
+                                        <div class='lg-h toggle'>Manage
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Install, Uninstall an app</div>
+                                    </div>
+                                    <div>
+                                        <div class='lg-h toggle'>Settings
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Change app settngs</div>
+                                    </div>
+                                </div>
+                            </header>
+                            <header class="container">
+                                <div class="acc-title acc-sub-title">
+                                    <span>Contacts</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                                    <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="acc-body lg lg-line">
+                                    <div>
+                                        <div class='lg-h toggle'>Numbers
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Edit numbers</div>
+                                    </div>
+                                    <div>
+                                        <div class='lg-h toggle'>Change name
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Edit name</div>
+                                    </div>
+                                </div>
+                            </header>
+                        </aalam-accordion>
+                    </div>
+                </header>
+                <header class="container ">
+                    <div class="acc-title">
+                        <span> stocks </span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                        <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="acc-body">
+                        <aalam-accordion>
+                            <header class="container">
+                                <div class="acc-title acc-sub-title">
+                                    <span>market</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                                    <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="acc-body lg">
+                                    <aalam-accordion>
+                                        <div class="container">
+                                            <div class="acc-title acc-sub-title">
+                                                <div class='lg-h'>Order</div>
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                                                <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            </div>
+                                            <div class="acc-body lg lg-line">
+                                                <div>
+                                                    <div class='lg-h toggle'>Numbers
+                                                        <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                                    </div>
+                                                    <div class='lg-b'>Edit numbers</div>
+                                                </div>
+                                                <div>
+                                                    <div class='lg-h toggle'>Change name
+                                                        <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                                    </div>
+                                                    <div class='lg-b'>Edit name</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </aalam-accordion>
+                                    <div>
+                                        <div class='lg-h toggle'>replace
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>make payment</div>
+                                    </div>
+                                </div>
+                            </header>
+                            <header class="container">
+                                <div class="acc-title acc-sub-title">
+                                    <span>shop</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                                    <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="acc-body lg lg-line">
+                                    <div>
+                                        <div class='lg-h toggle'>icon
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Edit icon</div>
+                                    </div>
+                                    <div>
+                                        <div class='lg-h toggle'>logo
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Edit logo</div>
+                                    </div>
+                                </div>
+                            </header>
+                        </aalam-accordion>
+                    </div>
+                </header>
+                <header class="container">
+                    <div class="acc-title">
+                        <span>Base Application</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                        <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="acc-body">
+                        <aalam-accordion>
+                            <header class="container">
+                                <div class="acc-title acc-sub-title">
+                                    <span>Apps</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                                    <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="acc-body lg lg-line">
+                                    <div>
+                                        <div class='lg-h toggle'>Manage
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Install, Uninstall an app</div>
+                                    </div>
+                                    <div>
+                                        <div class='lg-h toggle'>Settings
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Change app settngs</div>
+                                    </div>
+                                </div>
+                            </header>
+                            <header class="container">
+                                <div class="acc-title acc-sub-title">
+                                    <span>Contacts</span>
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                                    <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="acc-body lg lg-line">
+                                    <div>
+                                        <div class='lg-h toggle'>Numbers
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Edit numbers</div>
+                                    </div>
+                                    <div>
+                                        <div class='lg-h toggle'>Change name
+                                            <div> <label class="toggle-switch"> <input type="checkbox"> <div class="toggle-switch-background"> <div class="toggle-switch-handle"></div> </div> </label> </div>
+                                        </div>
+                                        <div class='lg-b'>Edit name</div>
+                                    </div>
+                                </div>
+                            </header>
+                        </aalam-accordion>
+                    </div>
+                </header>
+                </br>
+                <div>
+                    <label>
+                        <input type="checkbox" id="noclose" /> No Close All
+                    </label>
+                    <label>
+                        <input type="checkbox" id="nomulti" /> No Multiple
+                    </label>
+                </div>
+
+
+
+            </aalam-accordion>
+        </div>
+
+        <div style="width:-moz-available; border: 1px solid black;">
+            <!------------------FAQ type Accordion------------------>
+            <aalam-accordion id="accordion" activecls="ac" nocloseall nomultiple>
+                <H3 style="text-align:center;">  Demo for FAQ type accordion </H3>
+                <article class="container ac">
+                    <div class="acc-title">
+                        <span>What is Machine Learning?</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                        <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="acc-body nml">
+                        <p>
+                            Machine Learning is a subset of AI that provides systems
+                            the ability to automatically learn and improve from
+                            experience without being explicitly programmed. It
+                            focuses on the development of computer programs that can
+                            access data and use it to learn for themselves.
+                        </p>
+                    </div>
+                </article>
+
+                <div class="container ac">
+                    <div class="acc-title">
+                        <span>What is Blockchain?</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                        <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="acc-body nml">
+                        <p>
+                            Blockchain is a decentralized, distributed ledger
+                            technology that records the provenance of a digital
+                            asset. By decentralizing the data, blockchain eliminates
+                            the need for intermediaries, reduces the risk of fraud,
+                            and enhances transparency.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="container ac">
+                    <div class="acc-title">
+                        <span>What is cloud?</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                        <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="acc-body nml">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, cum!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="container ac">
+                    <div class="acc-title">
+                        <span>What is big data?</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="8.5" stroke="#2E3A43"/>
+                        <path d="M7 9L10 12L13 9" stroke="#2E3A43" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="acc-body nml">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, cum!
+                        </p>
+                    </div>
+                </div>
+            </aalam-accordion>
+            </br>
+            <div>
+                <label>
+                    <input type="checkbox" id="nocloseall" /> No Close All
+                </label>
+                <label>
+                    <input type="checkbox" id="nomultiple" /> No Multiple
+                </label>
+            </div>
+        </div>
+    </div>
+
+        <script>
+            const accordion = document.getElementById("accordion");
+            const noCloseAllCheckbox = document.getElementById("nocloseall");
+            const noMultipleCheckbox = document.getElementById("nomultiple");
+
+            noCloseAllCheckbox.addEventListener("change", (event) => {
+                if (event.target.checked) {
+                    accordion.setAttribute("nocloseall", event.target.checked);
+                } else {
+                    accordion.removeAttribute("nocloseall");
+                }
+            });
+
+            noMultipleCheckbox.addEventListener("change", (event) => {
+                if (event.target.checked) {
+                    accordion.setAttribute("nomultiple", event.target.checked);
+                } else {
+                    accordion.removeAttribute("nomultiple");
+                }
+            });
+
+            const acc = document.getElementById("acc");
+            const noClose = document.getElementById("noclose");
+            const noMulti = document.getElementById("nomulti");
+
+            noClose.addEventListener("change", (event) => {
+                if (event.target.checked) {
+                    acc.setAttribute("nocloseall", event.target.checked);
+                } else {
+                    acc.removeAttribute("nocloseall");
+                }
+            });
+
+            noMulti.addEventListener("change", (event) => {
+                if (event.target.checked) {
+                    acc.setAttribute("nomultiple", event.target.checked);
+                } else {
+                    acc.removeAttribute("nomultiple");
+                }
+            });
+        </script>
+    </body>
+</html>

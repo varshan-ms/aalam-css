@@ -1,0 +1,93 @@
+@import "./variables/padding.scss";
+@import "./variables/color.scss";
+@import "./variables/text.scss";
+
+/*
+ * Accordion class
+ * Component code   :
+ *
+ * class            : acc-title
+ *                      acc-sub-title : (style for sub-title accordion under a title accordion)
+ *
+ * class            : acc-body
+ *                      nml : (style for FAQ type accordion)
+ *                      sub : (style for sub-title under a sub-title acccordion)
+ */
+
+.lg-line > *:last-child {
+    border-bottom:none;
+}
+
+.container {
+    border-bottom: 1px solid $clr-bg-l2;
+
+    & *.container {
+        border-bottom: none;
+    }
+}
+
+.acc-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $pad-m $pad-l;
+    cursor: pointer;
+    border-bottom: 1px solid $clr-bg-l2;
+
+    & * {
+        font-size: $t-sz;
+        color: $clr-txt;
+    }
+
+    &.acc-sub-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $clr-lbl;
+        padding-left: 15px;
+
+        & * {
+            font-size: $t-sz;
+            color: $clr-txt;
+        }
+    }
+}
+
+.acc-body {
+    display: none;
+    border-radius: 0 0 5px 5px;
+    color: $clr-txt;
+
+    & aalam-accordion {
+        padding-left: 30px;
+
+        & aalam-accordion {
+            padding-left: 15px;
+        }
+    }
+
+    &.nml * {
+        padding: 15px;
+        background-color:$clr-lbl;
+    }
+
+    &.active {
+        display: block;
+    }
+
+    & * {
+        margin: 0;
+        display: block;
+        color: $clr-txt;
+    }
+
+    &.lg {
+        display: none;
+        border-radius: 0 0 5px 5px;
+        padding-left: 15px;
+
+        & > * {
+            padding-right: 0px;
+        }
+    }
+}
