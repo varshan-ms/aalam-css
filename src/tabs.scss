@@ -1,0 +1,53 @@
+@import "./variables/padding.scss";
+@import "./variables/text.scss";
+@import "./variables/color.scss";
+@import "./mixins/color.scss";
+@import "./variables/grid.scss";
+
+[slot='tab-title'] {
+    display: flex;
+    padding: $pad-s $pad-m;
+    color: $clr-txt-meta;
+    cursor: pointer;
+    font-size: $t-sz;
+    flex-shrink:0;
+    border-bottom: 2px solid $clr-bg-l2;
+    position: relative; //h
+
+    &:hover {
+        background: $clr-bg-l1;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+    }
+
+    &.tab-active {
+        color: $clr-txt;
+
+        &::after {
+            content:"";
+            position:absolute;
+            bottom: -2px;
+            left:0px;
+            right:0px;
+            height:2px;
+            background-color: $clr-txt-py;
+            z-index: 1;
+        }
+    }
+}
+
+[slot='tab-body'] {
+    padding: $pad-s $pad-m;
+}
+
+aalam-tabs::part(tab-title) {
+    overflow-x: auto;
+    scrollbar-width: none;
+    position:relative;
+}
+
+aalam-tabs.tabs-wr {
+    &::part(tab-title) {
+        flex-wrap: wrap;
+    }
+}
