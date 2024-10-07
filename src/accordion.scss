@@ -1,0 +1,66 @@
+@import "./variables/padding.scss";
+@import "./variables/color.scss";
+@import "./variables/text.scss";
+
+.aalam-accordion {
+display: block;
+}
+body {
+    line-height: 1.6; 
+    padding: $pad-m $pad-l;
+}
+
+/*.container {
+    //background-color: red;
+}*/
+
+.acc-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $pad-m $pad-l;
+    cursor: pointer;
+    border-bottom: 1px solid $clr-bg-l2;
+}
+
+.acc-title * {
+    font-size: $t-sz;
+    color: $clr-txt;
+}
+
+.acc-body {
+    display: none;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+}
+.acc-body * {
+    padding: 20px;
+    margin: 0;
+    display: block;
+    left: 20px;
+    color: $clr-txt;;
+}
+
+.acc-body.active {
+    display: block;
+}
+
+button {
+
+/*background-color: #007bff;
+color: #fff;
+border: none;
+padding: 8px 15px;
+cursor: pointer;
+        border-radius: 3px;
+transition: background-color 0.3s ease;
+*/
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: red;
+       }
+
