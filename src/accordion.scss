@@ -45,7 +45,7 @@ aalam-accordion {display: block;}
 }
 .acc-active {
     & > .acc-title {
-        & .ic.acc-tgl {transform: rotate(180deg);}
+        & .ic.acc-tgl {transform: rotate(var(--acc-tgl-ang, 180deg));}
     }
 }
 .acc-active:not(.acc-filled) {
