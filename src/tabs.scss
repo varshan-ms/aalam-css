@@ -90,7 +90,7 @@ aalam-tabs[data-fashion=column] > [slot=tab-title] {
     padding: $pad-m $pad-l;
 
     &.tab-inactive {cursor:inherit;}
-    &:not(.tab-inactive):hover {
+    &:not(.tab-inactive):not(.tab-col-hdr):hover {
       background-color: $clr-bg-l1;
     }
 
@@ -150,6 +150,15 @@ aalam-tabs[data-fashion=overlay], aalam-tabs[data-fashion=column] {
         background: $clr-bg;
         z-index: 1
     }
+
+    &.tab-fullht {
+        &::part(tab-root),
+        & > [slot=tab-body] { height:100%; }
+
+        &::part(tab-body-holder),
+        &::part(tab-title-holder) { overflow:auto; }
+    }
+
 }
 
 .tab-pill {
@@ -158,8 +167,9 @@ aalam-tabs[data-fashion=overlay], aalam-tabs[data-fashion=column] {
     display: inline-flex;
 
     & > * {
+        cursor:pointer;
         border-radius: $bdr-r-curve;
-        padding: $pad-m $pad-l;
+        padding: $pad-s $pad-l;
         border: 1px solid $bdr-clr;
         color: $clr-txt-meta;
 
