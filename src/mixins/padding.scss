@@ -1,8 +1,19 @@
 @mixin pad-vert($val, $important: false) {
-  padding-top: $val    #{if($important, ' !important', '')};
-  padding-bottom: $val #{if($important, ' !important', '')};
+  $suffix: "";
+  @if $important {
+    $suffix: " !important";
+  }
+
+  padding-top: #{$val}#{$suffix};
+  padding-bottom: #{$val}#{$suffix};
 }
+
 @mixin pad-horz($val, $important: false) {
-  padding-left: $val  #{if($important, ' !important', '')};
-  padding-right: $val #{if($important, ' !important', '')};
+  $suffix: "";
+  @if $important {
+    $suffix: " !important";
+  }
+
+  padding-left: #{$val}#{$suffix};
+  padding-right: #{$val}#{$suffix};
 }
