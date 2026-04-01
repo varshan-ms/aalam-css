@@ -161,7 +161,7 @@ input[type="checkbox"]:disabled,input[type="radio"]:disabled {
     color:$clr-bg-l2;
 }
 input[type="checkbox"]:disabled::before,input[type="radio"]:disabled::before,input:disabled {
-    background:$clr-bg-l2;
+    background:$clr-bg-l1;
 }
 input[type="radio"] {border-radius: 50%;}
 input[type="radio"]::before {
