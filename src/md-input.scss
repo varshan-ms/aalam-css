@@ -44,7 +44,7 @@ aalam-md-input[mode=outline] {
         }
     }
 
-    &::part(container):hover {
+    &:not([disabled])::part(container):hover {
         border: 1px solid $clr-txt-meta;
     }
 
@@ -68,7 +68,7 @@ aalam-md-input[mode=outline] {
         color: $clr-txt-meta;
     }
 
-    &:hover::part(label) {
+    &:not([disabled]):hover::part(label) {
         color: $clr-txt-meta;
     }
 
@@ -88,13 +88,16 @@ aalam-md-input[mode=normal] {
         border:0;
     }
     &::part(container) {
-        border:1px solid $clr-bg-l2;
-        background-color: $clr-lbl;
+        border:1px solid $bdr-clr;
+        background-color: var(--clr-bg);
     }
-    &::part(container):hover {
-        border:1px solid $clr-txt;
+    &:not([disabled])::part(container):hover {
+        border:1px solid $clr-txt-meta;
     }
-    &::part(container):hover {
-        border:1px solid $clr-txt-py;
+    &:not([disabled])::part(container):focus-within:hover {
+        border: 1px solid $clr-txt-py;
     }
+}
+aalam-md-input[disabled]::part(container) {
+    background-color: var(--clr-bg-l1);
 }
