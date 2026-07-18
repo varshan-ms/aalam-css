@@ -1,0 +1,30 @@
+@use "./variables/color" as *;
+@use "./variables/button" as *;
+@use "./variables/border" as *;
+@use "./form" as *;
+
+aalam-minput {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &::part(inp-field) {
+        padding: $bt-m-v $fc-inp-pad-h;
+        border: 1px solid $bdr-clr;
+        border-radius: $bdr-r-s;
+        background: $clr-bg;
+        color: $clr-txt;
+        font: inherit;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    &::part(inp-field):hover {
+        border-color: $clr-bg-l5;
+    }
+
+    &::part(inp-field):focus {
+        border-color: $clr-txt-py;
+        background: $clr-bg;
+    }
+}
