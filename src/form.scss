@@ -195,7 +195,7 @@ input[type="radio"]::before {
 .fc-ig {
     display:flex;
     flex-direction:row;
-    & > *:not(:first-child) {margin-left:-1px;}
+    & > *:not(:first-child) {margin-left:-1px; position:relative;}
     & > aalam-dropdown:first-child > [slot="dd-toggler"].bt,
     & > input:first-child,
     & > *:first-child input,
