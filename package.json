@@ -2,7 +2,7 @@
   "name": "aalam-css",
   "description": "aalam-css is a scss based css library for user interface.",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "keywords": [
     "aalam-css",
     "aalam cascading style sheet"
@@ -20,11 +20,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "aalam-wc": "^0.0.16",
-    "browserslist": "^4.28.1",
-    "lightningcss": "^1.31.1",
-    "lightningcss-cli": "^1.31.1",
-    "sass": "^1.97.3",
-    "vite": "^7.3.1"
+    "browserslist": "^4.28.6",
+    "lightningcss": "^1.32.0",
+    "lightningcss-cli": "^1.32.0",
+    "sass": "^1.101.0",
+    "vite": "^8.1.5"
   }
 }
